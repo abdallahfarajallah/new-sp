@@ -1,0 +1,41 @@
+//Variables:
+//--Color:
+$primary-color: #333;
+$secondery-color: orange;
+$heading-color: #fff;
+$links-color: $heading-color;
+$links-color-hover: yellow;
+$sub-heading-color: white;
+$body-color: white;
+
+//--fonts:
+$body-font: Helvetica, Arial, sabs-serif;
+
+// settext color based on background
+@function text-color ($color) {
+	@if (lightness ($color) >70) {
+		@return rgb(36, 34, 34);
+	} @else {
+		@return rgb(158,158,247);
+	}
+}
+
+//set Bg and text based om primari color
+@mixin backgroud-color ($color) {
+	background-color: $color;
+	color: text-color($color);
+}
+
+$steps: (1, 2, 3, 4, 5, 6);
+
+@each $step in $steps {
+
+	.m-#{$step} {
+		margin: #{$step*10}px ;
+	}
+	.my-#{$step} {
+		margin: #{$step*10}px 0;
+	}
+	.mx-#{$step}{
+		margin: #{$step*10}px ;
+}
